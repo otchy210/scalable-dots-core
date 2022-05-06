@@ -1,6 +1,6 @@
 {
   "name": "@otchy/scalable-dots-core",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "files": [
     "dist"
@@ -30,7 +30,6 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.31",
-    "ts-node": "^10.7.0",
     "typescript": "^4.6.4"
   }
 }
