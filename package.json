@@ -1,33 +1,33 @@
 {
-    "name": "@otchy/scalable-dots-core",
-    "version": "0.0.0",
-    "description": "",
-    "files": [
-        "dist"
-    ],
-    "main": "dist/index.js",
-    "module": "dist/esm/index.js",
-    "types": "dist/esm/index.d.ts",
-    "scripts": {
-        "prebuild": "rm -rf dist/*",
-        "build": "npm run build:common && npm run build:esm",
-        "build:common": "tsc",
-        "build:esm": "tsc -p tsconfig.esm.json",
-        "test": "jest"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/otchy210/scalable-dots-core.git"
-    },
-    "author": "",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/otchy210/scalable-dots-core/issues"
-    },
-    "homepage": "https://github.com/otchy210/scalable-dots-core#readme",
-    "devDependencies": {
-        "@types/node": "^17.0.31",
-        "ts-node": "^10.7.0",
-        "typescript": "^4.6.4"
-    }
+  "name": "@otchy/scalable-dots-core",
+  "version": "0.0.0",
+  "description": "",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "scripts": {
+    "prebuild": "rm -rf dist/*",
+    "build": "npm run build:common && npm run build:esm",
+    "build:common": "tsc",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otchy210/scalable-dots-core.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/otchy210/scalable-dots-core/issues"
+  },
+  "homepage": "https://github.com/otchy210/scalable-dots-core#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.31",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  }
 }
