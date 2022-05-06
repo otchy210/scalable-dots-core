@@ -19,7 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/otchy210/scalable-dots-core.git"
   },
-  "author": "",
+  "author": "Toru Ochiai <npm@otchy.net> (https://twitter.com/otchy)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/otchy210/scalable-dots-core/issues"
