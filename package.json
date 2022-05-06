@@ -1,0 +1,19 @@
+{
+    "name": "@otchy/scalable-dots-core",
+    "version": "0.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/otchy210/scalable-dots-core.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/otchy210/scalable-dots-core/issues"
+    },
+    "homepage": "https://github.com/otchy210/scalable-dots-core#readme"
+}
