@@ -1,7 +1,10 @@
 {
   "name": "@otchy/scalable-dots-core",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "",
+  "engines": {
+    "node": ">=18"
+  },
   "files": [
     "dist"
   ],
