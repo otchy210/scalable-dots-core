@@ -1,6 +1,6 @@
 {
   "name": "@otchy/scalable-dots-core",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "",
   "engines": {
     "node": ">=18"
@@ -16,7 +16,10 @@
     "build": "npm run build:common && npm run build:esm",
     "build:common": "tsc",
     "build:esm": "tsc -p tsconfig.esm.json",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "lint:format": "prettier --write ."
   },
   "repository": {
     "type": "git",
