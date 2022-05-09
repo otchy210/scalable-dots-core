@@ -6,7 +6,7 @@ const XML_ENTITIES: Record<string, string> = {
   '"': '&quot;',
 };
 
-const escape = (str: string) => {
+export const escape = (str: string) => {
   return str.replace(/[&<>'"]/g, (ch) => XML_ENTITIES[ch] ?? '');
 };
 
@@ -38,7 +38,7 @@ export class XmlNode {
       .join(' ')}`;
   }
   private innerToMinifiedXml(depth: number) {
-    if (depth > 16) {
+    if (depth >= 16) {
       throw new Error('XmlNode depth must be less than 16.');
     }
     if (this.children.length === 0) {
@@ -54,7 +54,27 @@ export class XmlNode {
     }
   }
   toMinifiedXml() {
-    return this.innerToMinifiedXml(1);
+    return this.innerToMinifiedXml(0);
+  }
+  private innerToPrettyXml(tab: string, depth: number) {
+    if (depth >= 16) {
+      throw new Error('XmlNode depth must be less than 16.');
+    }
+    const tabs = tab.repeat(depth);
+    if (this.children.length === 0) {
+      return `${tabs}<${this.toTagBody()}/>\n`;
+    } else {
+      const texts: string[] = [];
+      texts.push(`${tabs}<${this.toTagBody()}>\n`);
+      this.children.forEach((child) =>
+        texts.push(child.innerToPrettyXml(tab, depth + 1))
+      );
+      texts.push(`${tabs}</${this.name}>\n`);
+      return texts.join('');
+    }
+  }
+  toPrettyXml(tab = '  ') {
+    return this.innerToPrettyXml(tab, 0).trim();
   }
 
   static builder(name: string) {
