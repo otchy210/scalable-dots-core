@@ -15,6 +15,13 @@ type RectProps = {
   fill: string;
 };
 
+type CircleProps = {
+  cx: number;
+  cy: number;
+  r: number;
+  fill: string;
+};
+
 export class SvgDocument {
   private root: XmlNode;
 
@@ -26,14 +33,23 @@ export class SvgDocument {
       .build();
   }
   addRect({ x, y, width, height, fill }: RectProps) {
-    const rect = XmlNode.builder('rect')
+    const node = XmlNode.builder('rect')
       .attr('x', x)
       .attr('y', y)
       .attr('width', width)
       .attr('height', height)
       .attr('fill', fill)
       .build();
-    this.root.addChild(rect);
+    this.root.addChild(node);
+  }
+  addCircle({ cx, cy, r, fill }: CircleProps) {
+    const node = XmlNode.builder('circle')
+      .attr('cx', cx)
+      .attr('cy', cy)
+      .attr('r', r)
+      .attr('fill', fill)
+      .build();
+    this.root.addChild(node);
   }
   toMinifiedXml() {
     return `${XML_DECLARATION}${this.root.toMinifiedXml()}`;
