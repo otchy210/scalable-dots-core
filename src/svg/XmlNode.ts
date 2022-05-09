@@ -11,23 +11,30 @@ export const escape = (str: string) => {
 };
 
 export class XmlNode {
-  private name: string;
-  public readonly attrs: Record<string, string>;
-  public readonly children: XmlNode[];
+  private tagName: string;
+  public attrs: Record<string, string>;
+  public children: XmlNode[];
   constructor(
-    name: string,
+    tagName: string,
     attrs: Record<string, string>,
     children: XmlNode[]
   ) {
-    this.name = name;
+    this.tagName = tagName;
     this.attrs = attrs;
     this.children = children;
   }
+  addAttr(name: string, value: string | number) {
+    const strValue = typeof value === 'string' ? value : String(value);
+    this.attrs[name] = strValue;
+  }
+  addChild(child: XmlNode) {
+    this.children.push(child);
+  }
   private toTagBody() {
     if (Object.keys(this.attrs).length === 0) {
-      return this.name;
+      return this.tagName;
     }
-    return `${this.name} ${Object.entries(this.attrs)
+    return `${this.tagName} ${Object.entries(this.attrs)
       .map(([name, value]) => {
         if (name === value) {
           return name;
@@ -49,7 +56,7 @@ export class XmlNode {
       this.children.forEach((child) =>
         texts.push(child.innerToMinifiedXml(depth + 1))
       );
-      texts.push(`</${this.name}>`);
+      texts.push(`</${this.tagName}>`);
       return texts.join('');
     }
   }
@@ -69,7 +76,7 @@ export class XmlNode {
       this.children.forEach((child) =>
         texts.push(child.innerToPrettyXml(tab, depth + 1))
       );
-      texts.push(`${tabs}</${this.name}>\n`);
+      texts.push(`${tabs}</${this.tagName}>\n`);
       return texts.join('');
     }
   }
@@ -83,16 +90,20 @@ export class XmlNode {
 }
 
 export class XmlNodeBuilder {
-  private name: string;
+  private tagName: string;
   private attrs: Record<string, string>;
   private children: XmlNode[];
   constructor(name: string) {
-    this.name = name;
+    this.tagName = name;
     this.attrs = {};
     this.children = [];
   }
-  attr(name: string, value?: string) {
-    this.attrs[name] = value ?? name;
+  attr(name: string, value?: string | number) {
+    if (typeof value === 'number') {
+      this.attrs[name] = String(value);
+    } else {
+      this.attrs[name] = value ?? name;
+    }
     return this;
   }
   child(child: XmlNode | undefined) {
@@ -102,6 +113,6 @@ export class XmlNodeBuilder {
     return this;
   }
   build() {
-    return new XmlNode(this.name, this.attrs, this.children);
+    return new XmlNode(this.tagName, this.attrs, this.children);
   }
 }
