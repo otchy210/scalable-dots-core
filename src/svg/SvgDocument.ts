@@ -7,6 +7,13 @@ type SvgProps = {
   height: number;
 };
 
+type DotProps = {
+  x: number;
+  y: number;
+  size: number;
+  fill: string;
+};
+
 type RectProps = {
   x: number;
   y: number;
@@ -31,6 +38,13 @@ export class SvgDocument {
       .attr('xmlns', 'http://www.w3.org/2000/svg')
       .attr('version', '1.1')
       .build();
+  }
+  addSquareDot({ x, y, size, fill }: DotProps) {
+    const node = XmlNode.builder('path')
+      .attr('d', `m${x} ${y}h${size}v${size}h-${size}z`)
+      .attr('fill', fill)
+      .build();
+    this.root.addChild(node);
   }
   addRect({ x, y, width, height, fill }: RectProps) {
     const node = XmlNode.builder('rect')
