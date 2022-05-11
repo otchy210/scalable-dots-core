@@ -1,7 +1,5 @@
 import { XmlNode } from './XmlNode';
 
-const XML_DECLARATION = '<?xml version="1.0"?>\n';
-
 type SvgProps = {
   width: number;
   height: number;
@@ -66,9 +64,9 @@ export class SvgDocument {
     this.root.addChild(node);
   }
   toMinifiedXml() {
-    return `${XML_DECLARATION}${this.root.toMinifiedXml()}`;
+    return this.root.toMinifiedXml();
   }
   toPrettyXml() {
-    return `${XML_DECLARATION}${this.root.toPrettyXml()}`;
+    return this.root.toPrettyXml();
   }
 }
