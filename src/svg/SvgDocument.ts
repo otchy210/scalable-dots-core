@@ -12,21 +12,6 @@ type DotProps = {
   fill: string;
 };
 
-type RectProps = {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  fill: string;
-};
-
-type CircleProps = {
-  cx: number;
-  cy: number;
-  r: number;
-  fill: string;
-};
-
 export class SvgDocument {
   private root: XmlNode;
 
@@ -44,17 +29,10 @@ export class SvgDocument {
       .build();
     this.root.addChild(node);
   }
-  addRect({ x, y, width, height, fill }: RectProps) {
-    const node = XmlNode.builder('rect')
-      .attr('x', x)
-      .attr('y', y)
-      .attr('width', width)
-      .attr('height', height)
-      .attr('fill', fill)
-      .build();
-    this.root.addChild(node);
-  }
-  addCircle({ cx, cy, r, fill }: CircleProps) {
+  addCircleDot({ x, y, size, fill }: DotProps) {
+    const r = size / 2;
+    const cx = x + r;
+    const cy = y + r;
     const node = XmlNode.builder('circle')
       .attr('cx', cx)
       .attr('cy', cy)

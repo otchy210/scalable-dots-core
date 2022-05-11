@@ -1,6 +1,6 @@
 {
   "name": "@otchy/scalable-dots-core",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "",
   "engines": {
     "node": ">=18"
