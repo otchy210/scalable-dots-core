@@ -41,6 +41,14 @@ export class SvgDocument {
       .build();
     this.root.addChild(node);
   }
+  addRhombusDot({ x, y, size, fill }: DotProps) {
+    const hs = size / 2;
+    const node = XmlNode.builder('path')
+      .attr('d', `m${x} ${y + hs}l${hs} -${hs}l${hs} ${hs}l-${hs} ${hs}z`)
+      .attr('fill', fill)
+      .build();
+    this.root.addChild(node);
+  }
   toMinifiedXml() {
     return this.root.toMinifiedXml();
   }
