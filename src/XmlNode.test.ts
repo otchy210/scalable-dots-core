@@ -16,6 +16,17 @@ describe('escape', () => {
 });
 
 describe('XmlNode', () => {
+  describe('addAttr', () => {
+    it.each([
+      [undefined, '<node name/>'],
+      ['str', '<node name="str"/>'],
+      [10, '<node name="10"/>'],
+    ])('works when value is %s', (value, expected) => {
+      const node = XmlNode.builder('node').build();
+      node.addAttr('name', value);
+      expect(node.toMinifiedXml()).toBe(expected);
+    });
+  });
   describe('toMinifiedXml', () => {
     it('renders no attrs no children case properly', () => {
       const node = XmlNode.builder('node').build();

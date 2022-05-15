@@ -1,6 +1,6 @@
 import { SvgDocument } from './SvgDocument';
 import { ScalableDotsProps } from './types';
-import { uint8toHex } from './utils';
+import { uint8toHex, unit8toRatio } from './utils';
 
 class ScalableDots {
   private svgDocument;
@@ -12,10 +12,13 @@ class ScalableDots {
       for (let x = 0; x < imageData.width; x++) {
         const offset = (y * imageData.width + x) * 4;
         const [r, g, b, a] = imageData.data.slice(offset, offset + 4);
+        if (a === 0) {
+          continue;
+        }
         const fill =
           a === 255
             ? `#${uint8toHex(r)}${uint8toHex(g)}${uint8toHex(b)}`
-            : `rgba(${r},${g},${b},${a})`;
+            : `rgba(${r},${g},${b},${unit8toRatio(a)})`;
         const dotProps = {
           x: x * (size + gap),
           y: y * (size + gap),

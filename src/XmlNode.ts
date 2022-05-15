@@ -7,7 +7,7 @@ const XML_ENTITIES: Record<string, string> = {
 };
 
 export const escape = (str: string) => {
-  return str.replace(/[&<>'"]/g, (ch) => XML_ENTITIES[ch] ?? '');
+  return str.replace(/[&<>'"]/g, (ch) => XML_ENTITIES[ch]);
 };
 
 export class XmlNode {
@@ -23,9 +23,12 @@ export class XmlNode {
     this.attrs = attrs;
     this.children = children;
   }
-  addAttr(name: string, value: string | number) {
-    const strValue = typeof value === 'string' ? value : String(value);
-    this.attrs[name] = strValue;
+  addAttr(name: string, value?: string | number) {
+    if (typeof value === 'number') {
+      this.attrs[name] = String(value);
+    } else {
+      this.attrs[name] = value ?? name;
+    }
   }
   addChild(child: XmlNode) {
     this.children.push(child);
