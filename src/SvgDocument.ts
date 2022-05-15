@@ -1,15 +1,9 @@
+import { DotProps, DotType } from './types';
 import { XmlNode } from './XmlNode';
 
 type SvgProps = {
   width: number;
   height: number;
-};
-
-type DotProps = {
-  x: number;
-  y: number;
-  size: number;
-  fill: string;
 };
 
 export class SvgDocument {
@@ -21,6 +15,19 @@ export class SvgDocument {
       .attr('xmlns', 'http://www.w3.org/2000/svg')
       .attr('version', '1.1')
       .build();
+  }
+  addDot(dotType: DotType, dotProps: DotProps) {
+    switch (dotType) {
+      case 'SQUARE':
+        this.addSquareDot(dotProps);
+        break;
+      case 'CIRCLE':
+        this.addCircleDot(dotProps);
+        break;
+      case 'RHOMBUS':
+        this.addRhombusDot(dotProps);
+        break;
+    }
   }
   addSquareDot({ x, y, size, fill }: DotProps) {
     const node = XmlNode.builder('path')
@@ -52,7 +59,7 @@ export class SvgDocument {
   toMinifiedXml() {
     return this.root.toMinifiedXml();
   }
-  toPrettyXml() {
-    return this.root.toPrettyXml();
+  toPrettyXml(tab = '  ') {
+    return this.root.toPrettyXml(tab);
   }
 }
