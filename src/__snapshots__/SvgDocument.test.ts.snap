@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SvgDocument addCircleDot works 1`] = `
+"<svg viewBox=\\"0 0 20 20\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\">
+  <circle cx=\\"5\\" cy=\\"5\\" r=\\"5\\" fill=\\"red\\"/>
+  <circle cx=\\"5\\" cy=\\"15\\" r=\\"5\\" fill=\\"green\\"/>
+  <circle cx=\\"15\\" cy=\\"5\\" r=\\"5\\" fill=\\"blue\\"/>
+  <circle cx=\\"15\\" cy=\\"15\\" r=\\"5\\" fill=\\"yellow\\"/>
+</svg>"
+`;
+
+exports[`SvgDocument addRhombusDot works 1`] = `
+"<svg viewBox=\\"0 0 20 20\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\">
+  <path d=\\"m0 5l5 -5l5 5l-5 5z\\" fill=\\"red\\"/>
+  <path d=\\"m0 15l5 -5l5 5l-5 5z\\" fill=\\"green\\"/>
+  <path d=\\"m10 5l5 -5l5 5l-5 5z\\" fill=\\"blue\\"/>
+  <path d=\\"m10 15l5 -5l5 5l-5 5z\\" fill=\\"yellow\\"/>
+</svg>"
+`;
+
+exports[`SvgDocument addSquareDot works 1`] = `
+"<svg viewBox=\\"0 0 20 20\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\">
+  <path d=\\"m0 0h10v10h-10z\\" fill=\\"red\\"/>
+  <path d=\\"m0 10h10v10h-10z\\" fill=\\"green\\"/>
+  <path d=\\"m10 0h10v10h-10z\\" fill=\\"blue\\"/>
+  <path d=\\"m10 10h10v10h-10z\\" fill=\\"yellow\\"/>
+</svg>"
+`;
+
+exports[`SvgDocument renders empty svg properly 1`] = `"<svg viewBox=\\"0 0 50 100\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"`;
+
+exports[`SvgDocument renders empty svg properly 2`] = `"<svg viewBox=\\"0 0 50 100\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"`;

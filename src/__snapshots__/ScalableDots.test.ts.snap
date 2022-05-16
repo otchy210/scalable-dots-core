@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`scalebleDots renders RGB case properly 1`] = `
+"<svg viewBox=\\"0 0 38 38\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\">
+  <path d=\\"m0 0h16v16h-16z\\" fill=\\"#ff0000\\"/>
+  <path d=\\"m18 0h16v16h-16z\\" fill=\\"#00c000\\"/>
+  <path d=\\"m0 18h16v16h-16z\\" fill=\\"#0000ff\\"/>
+  <path d=\\"m18 18h16v16h-16z\\" fill=\\"#c0c000\\"/>
+</svg>"
+`;
+
+exports[`scalebleDots renders half-transparent case properly 1`] = `
+"<svg viewBox=\\"0 0 38 38\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\">
+  <path d=\\"m0 0h16v16h-16z\\" fill=\\"rgba(255,0,0,.5)\\"/>
+  <path d=\\"m18 0h16v16h-16z\\" fill=\\"rgba(0,192,0,.5)\\"/>
+  <path d=\\"m0 18h16v16h-16z\\" fill=\\"rgba(0,0,255,.5)\\"/>
+  <path d=\\"m18 18h16v16h-16z\\" fill=\\"rgba(192,192,0,.5)\\"/>
+</svg>"
+`;
+
+exports[`scalebleDots renders transparent case properly 1`] = `
+"<svg viewBox=\\"0 0 38 38\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\">
+  <path d=\\"m18 0h16v16h-16z\\" fill=\\"rgba(0,192,0,.5)\\"/>
+  <path d=\\"m0 18h16v16h-16z\\" fill=\\"#0000ff\\"/>
+</svg>"
+`;
