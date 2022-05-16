@@ -1,6 +1,6 @@
 {
   "name": "@otchy/scalable-dots-core",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "",
   "engines": {
     "node": ">=18"
@@ -14,12 +14,13 @@
   "scripts": {
     "prebuild": "rm -rf dist/*",
     "build": "npm run build:common && npm run build:esm",
-    "build:common": "tsc",
+    "build:common": "tsc -p tsconfig.build.json",
     "build:esm": "tsc -p tsconfig.esm.json",
     "test": "jest",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "lint:format": "prettier --write ."
+    "lint:format": "prettier --write .",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",

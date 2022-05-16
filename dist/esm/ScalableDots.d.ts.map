@@ -1,0 +1,1 @@
+{"version":3,"file":"ScalableDots.d.ts","sourceRoot":"","sources":["../../src/ScalableDots.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,iBAAiB,EAAE,MAAM,SAAS,CAAC;AAG5C,cAAM,YAAY;IAChB,OAAO,CAAC,WAAW,CAAC;gBACR,EAAE,SAAS,EAAE,IAAI,EAAE,IAAI,EAAE,GAAG,EAAE,EAAE,iBAAiB;IAyB7D,aAAa;IAGb,WAAW,CAAC,GAAG,SAAO;CAGvB;AAED,eAAO,MAAM,YAAY,UAAW,iBAAiB,iBAEpD,CAAC"}

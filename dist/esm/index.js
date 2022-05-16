@@ -1,3 +1,2 @@
-export const hello = (name) => {
-    console.log(`Hello ${name}!`);
-};
+import { scalableDots } from './ScalableDots';
+export { scalableDots };

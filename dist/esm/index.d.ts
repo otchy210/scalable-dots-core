@@ -1,2 +1,3 @@
-export declare const hello: (name: string) => void;
+import { scalableDots } from './ScalableDots';
+export { scalableDots };
 //# sourceMappingURL=index.d.ts.map
