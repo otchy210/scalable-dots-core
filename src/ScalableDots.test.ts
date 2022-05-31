@@ -10,6 +10,15 @@ describe('scalebleDots', () => {
     const dots = scalableDots({ imageData, type: 'SQUARE', size: 16, gap: 2 });
     expect(dots.toPrettyXml()).toMatchSnapshot();
   });
+  it('renders extream options case properly', () => {
+    const data = new Uint8ClampedArray([
+      255, 0, 0, 255, 0, 192, 0, 255, 0, 0, 255, 255, 192, 192, 0, 255,
+    ]);
+    const imageData = { width: 2, height: 2, data };
+
+    const dots = scalableDots({ imageData, type: 'SQUARE', size: 1, gap: 16 });
+    expect(dots.toPrettyXml()).toMatchSnapshot();
+  });
   it('renders half-transparent case properly', () => {
     const data = new Uint8ClampedArray([
       255, 0, 0, 128, 0, 192, 0, 128, 0, 0, 255, 128, 192, 192, 0, 128,
